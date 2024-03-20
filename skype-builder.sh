@@ -3,7 +3,7 @@
 APP=skype
 mkdir tmp
 cd ./tmp
-wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$(uname -m).AppImage -O appimagetool
+wget -q $(wget -q https://api.github.com/repos/probonopd/go-appimage/releases -O - | grep -v zsync | grep -i continuous | grep -i appimagetool | grep -i x86_64 | grep browser_download_url | cut -d '"' -f 4 | head -1) -O appimagetool
 chmod a+x ./appimagetool
 
 VERSION=$(curl -v --silent https://repo.skype.com/deb/dists/stable/main/binary-amd64/Packages 2>&1 | grep -m 1 -Eo "Version: [+-]?[0-9]+([.][0-9]+)?+[+-]?[0-9]+([.][0-9]+)?" | cut -c 10-)
@@ -22,6 +22,6 @@ export UNION_PRELOAD="${HERE}"
 exec "${HERE}"/skypeforlinux "$@"
 EOF
 chmod a+x ./$APP.AppDir/AppRun
-ARCH=x86_64 ./appimagetool -n ./$APP.AppDir
+ARCH=x86_64 VERSION=$(./appimagetool -v | grep -o '[[:digit:]]*') ./appimagetool -s ./$APP.AppDir
 cd ..
 mv ./tmp/*.AppImage ./Skype-$VERSION-x86_64.AppImage
