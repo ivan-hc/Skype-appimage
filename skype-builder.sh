@@ -34,6 +34,6 @@ exec "${HERE}"/skypeforlinux "$@"
 EOF
 chmod a+x ./"$APP".AppDir/AppRun
 
-ARCH=x86_64 ./appimagetool --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 ./"$APP".AppDir
-cd ..
-mv ./tmp/*.AppImage ./Skype-"$VERSION"-x86_64.AppImage
+ARCH=x86_64 ./appimagetool --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+	-u "gh-releases-zsync|$GITHUB_REPOSITORY_OWNER|Skype-appimage|continuous|*x86_64.AppImage.zsync" \
+	./"$APP".AppDir Skype-"$CHANNEL"-"$VERSION"-x86_64.AppImage || exit 1
