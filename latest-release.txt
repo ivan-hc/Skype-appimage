@@ -1,1 +1,1 @@
-https://github.com/ivan-hc/Skype-appimage/releases/download/continuous/Skype--8.137.0.425-x86_64.AppImage
+https://github.com/ivan-hc/Skype-appimage/releases/download/continuous/Skype--8.138.0.203-x86_64.AppImage
