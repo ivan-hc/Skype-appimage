@@ -3,6 +3,14 @@ Unofficial AppImage of Skype built from the official Snap package.
 
 ------------------------------------------------------------------------
 
+# WARNING: since May 5, 2025, Skype is deprecated!
+
+*Microsoft suggests switching to Teams.*
+
+*Thanks to everyone who supported this repository, helping me improve it when Skype was still active.*
+
+------------------------------------------------------------------------
+
 ## Install and update it with ease
 
 ### *"*AM*" Application Manager* 
